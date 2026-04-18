@@ -1,0 +1,12 @@
+// Apply java plugin and debug settings to all subprojects.
+subprojects {
+    apply plugin: 'java'
+    compileJava {
+        options.debugOptions.debugLevel = 'source,lines,vars'
+    }
+}
+
+// Compile all subproject classes when the root 'classes' task runs so that
+// `gradle classes` works from the project root.
+apply plugin: 'java'
+classes.dependsOn subprojects.collect { it.tasks.named('classes') }

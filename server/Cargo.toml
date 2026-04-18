@@ -1,0 +1,23 @@
+[package]
+name = "dapintar-server"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "dapintar"
+path = "src/main.rs"
+
+[dependencies]
+dap_core = { path = "../dap_core" }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+
+[features]
+integration-test = []
